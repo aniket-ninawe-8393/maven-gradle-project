@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configures the Camel Context-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:camel="http://camel.apache.org/schema/spring"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+  <bean id="myRouteBuilder" class="de.oveits.simplerestfulfilestorage.MyRouteBuilder"/>
+  <!--  <bean id="myRouteBuilder2" class="de.oveits.simplerestfulfilestorage.MyRouteBuilder2"/> -->
+
+  <camelContext xmlns="http://camel.apache.org/schema/spring">
+    <propertyPlaceholder location="properties/this.properties" id="properties"/>
+    <routeBuilder ref="myRouteBuilder"/>
+</camelContext>
+
+
+</beans>
